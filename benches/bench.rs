@@ -44,6 +44,7 @@ fn round_benchmark(c: &mut Criterion) {
     define_benchmark(c, "u5_to_u8_unsafe", u5_to_u8_unsafe);
     define_benchmark(c, "u5_to_u8_safer", u5_to_u8_safer);
     define_benchmark(c, "u5_to_u8_safer_int", u5_to_u8_safer_int);
+    define_benchmark(c, "u5_to_u8_lut", u5_to_u8_lut);
     define_benchmark(c, "u5_to_u8_int", u5_to_u8_int);
     define_benchmark(c, "u5_to_u8_bcdec", u5_to_u8_bcdec);
 }

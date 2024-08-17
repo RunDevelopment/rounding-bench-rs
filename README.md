@@ -57,6 +57,13 @@ Found 8 outliers among 100 measurements (8.00%)
   5 (5.00%) high mild
   3 (3.00%) high severe
 
+u5_to_u8_lut            time:   [6.7804 µs 6.8145 µs 6.8659 µs]
+                        change: [-6.5089% -5.8466% -4.9209%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 16 outliers among 100 measurements (16.00%)
+  8 (8.00%) high mild
+  8 (8.00%) high severe
+
 u5_to_u8_int            time:   [5.4164 µs 5.4840 µs 5.5627 µs]
                         change: [+7.5426% +9.7796% +12.352%] (p = 0.00 < 0.05)
                         Performance has regressed.

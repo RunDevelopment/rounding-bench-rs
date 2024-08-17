@@ -49,6 +49,16 @@ pub fn u5_to_u8_bcdec(x: u8) -> u8 {
     ((x as u16 * 527 + 23) >> 6) as u8
 }
 
+#[inline(always)]
+pub fn u5_to_u8_lut(x: u8) -> u8 {
+    debug_assert!(x < 32);
+    const LUT: [u8; 32] = [
+        0, 8, 16, 25, 33, 41, 49, 58, 66, 74, 82, 90, 99, 107, 115, 123, 132, 140, 148, 156, 165,
+        173, 181, 189, 197, 206, 214, 222, 230, 239, 247, 255,
+    ];
+    *unsafe { LUT.get_unchecked((x as usize) % LUT.len()) }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -63,6 +73,7 @@ mod tests {
             assert_eq!(u5_to_u8_safer_int(x), correct);
             assert_eq!(u5_to_u8_int(x), correct);
             assert_eq!(u5_to_u8_bcdec(x), correct);
+            assert_eq!(u5_to_u8_lut(x), correct);
         }
     }
 }
