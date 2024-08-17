@@ -4,11 +4,27 @@ This repo contains the benchmark for multiple implementations of unorm conversio
 
 ## Results
 
-This is the output of running `cargo bench` on my machine. The relevant specs(?) of my machine:
+Here's a simple table of the output of `cargo bench`:
+
+```
+u5_to_u8_naive          time:   [100.60 µs 100.95 µs 101.35 µs]
+u5_to_u8_v2             time:   [17.741 µs 17.842 µs 17.955 µs]
+u5_to_u8_unsafe         time:   [7.3612 µs 7.4211 µs 7.4950 µs]
+u5_to_u8_safer          time:   [7.7434 µs 7.7760 µs 7.8144 µs]
+u5_to_u8_safer_int      time:   [7.3363 µs 7.4120 µs 7.5003 µs]
+u5_to_u8_lut            time:   [6.7804 µs 6.8145 µs 6.8659 µs]
+u5_to_u8_int            time:   [5.4164 µs 5.4840 µs 5.5627 µs]
+u5_to_u8_ma             time:   [4.6062 µs 4.6210 µs 4.6378 µs]
+```
+
+The relevant specs(?) of my machine:
 
 - OS: Windows 10
 - CPU: Intel® Core™ i7-8700K CPU @ 3.70GHz
 - Rust: 1.78.0
+
+<details>
+<summary>Full output</summary>
 
 ```
 PS C:\Users\micha\Git\rounding-rs> cargo bench
@@ -71,13 +87,15 @@ Found 16 outliers among 100 measurements (16.00%)
   8 (8.00%) high mild
   8 (8.00%) high severe
 
-u5_to_u8_ma          time:   [4.6062 µs 4.6210 µs 4.6378 µs]
+u5_to_u8_ma             time:   [4.6062 µs 4.6210 µs 4.6378 µs]
                         change: [+0.7544% +2.4523% +4.7191%] (p = 0.01 < 0.05)
                         Change within noise threshold.
 Found 15 outliers among 100 measurements (15.00%)
   3 (3.00%) high mild
   12 (12.00%) high severe
 ```
+
+</details>
 
 ## License
 
