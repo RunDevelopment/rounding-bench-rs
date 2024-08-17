@@ -1,4 +1,4 @@
-# UNorm rounding benchmark
+# Unorm rounding benchmark
 
 This repo contains the benchmark for multiple implementations of unorm conversions in Rust.
 
