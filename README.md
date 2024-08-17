@@ -71,7 +71,7 @@ Found 16 outliers among 100 measurements (16.00%)
   8 (8.00%) high mild
   8 (8.00%) high severe
 
-u5_to_u8_bcdec          time:   [4.6062 µs 4.6210 µs 4.6378 µs]
+u5_to_u8_ma          time:   [4.6062 µs 4.6210 µs 4.6378 µs]
                         change: [+0.7544% +2.4523% +4.7191%] (p = 0.01 < 0.05)
                         Change within noise threshold.
 Found 15 outliers among 100 measurements (15.00%)
