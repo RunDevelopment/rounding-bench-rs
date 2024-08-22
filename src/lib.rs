@@ -56,7 +56,7 @@ pub fn u5_to_u8_lut(x: u8) -> u8 {
         0, 8, 16, 25, 33, 41, 49, 58, 66, 74, 82, 90, 99, 107, 115, 123, 132, 140, 148, 156, 165,
         173, 181, 189, 197, 206, 214, 222, 230, 239, 247, 255,
     ];
-    *unsafe { LUT.get_unchecked((x as usize) % LUT.len()) }
+    LUT[(x as usize) % LUT.len()]
 }
 
 #[cfg(test)]
