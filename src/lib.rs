@@ -48,6 +48,12 @@ pub fn u5_to_u8_ma(x: u8) -> u8 {
     debug_assert!(x < 32);
     ((x as u16 * 527 + 23) >> 6) as u8
 }
+// Same as u5_to_u8_ma, but with a shift of 8
+#[inline(always)]
+pub fn u5_to_u8_ma8(x: u8) -> u8 {
+    debug_assert!(x < 32);
+    ((x as u16 * 2108 + 92) >> 8) as u8
+}
 
 #[inline(always)]
 pub fn u5_to_u8_lut(x: u8) -> u8 {
@@ -73,6 +79,7 @@ mod tests {
             assert_eq!(u5_to_u8_safer_int(x), correct);
             assert_eq!(u5_to_u8_int(x), correct);
             assert_eq!(u5_to_u8_ma(x), correct);
+            assert_eq!(u5_to_u8_ma8(x), correct);
             assert_eq!(u5_to_u8_lut(x), correct);
         }
     }

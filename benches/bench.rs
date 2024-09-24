@@ -53,6 +53,7 @@ fn round_benchmark(c: &mut Criterion) {
     define_benchmark(c, "u5_to_u8_lut", u5_to_u8_lut);
     define_benchmark(c, "u5_to_u8_int", u5_to_u8_int);
     define_benchmark(c, "u5_to_u8_ma", u5_to_u8_ma);
+    define_benchmark(c, "u5_to_u8_ma8", u5_to_u8_ma8);
 }
 
 criterion_group!(benches, round_benchmark);

@@ -15,6 +15,7 @@ u5_to_u8_safer_int      time:   [7.2187 µs 7.2372 µs 7.2576 µs]
 u5_to_u8_lut            time:   [6.7951 µs 6.8097 µs 6.8261 µs]
 u5_to_u8_int            time:   [5.0247 µs 5.0486 µs 5.0715 µs]
 u5_to_u8_ma             time:   [4.5759 µs 4.5909 µs 4.6094 µs]
+u5_to_u8_ma8            time:   [4.2081 µs 4.2210 µs 4.2356 µs]
 ```
 
 The relevant specs(?) of my machine:
@@ -93,13 +94,20 @@ Found 14 outliers among 100 measurements (14.00%)
   6 (6.00%) high mild
   8 (8.00%) high severe
 
+u5_to_u8_ma8            time:   [4.2081 µs 4.2210 µs 4.2356 µs]
+                        change: [-0.3863% +0.4854% +1.3611%] (p = 0.29 > 0.05)
+                        No change in performance detected.
+Found 10 outliers among 100 measurements (10.00%)
+  3 (3.00%) high mild
+  7 (7.00%) high severe
+
 ```
 
 </details>
 
 ## Credit
 
-Thank you to @turalcar for [finding a bug in the benchmark](https://github.com/RunDevelopment/rounding-bench-rs/issues/1).
+Thank you to @turalcar for [finding a bug in the benchmark](https://github.com/RunDevelopment/rounding-bench-rs/issues/1) and [suggesting better constants](https://www.reddit.com/r/rust/comments/1fl7uo4/comment/lo8s3ij/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) for the multiply-add method (here `u5_to_u8_ma8`)!
 
 ## License
 
