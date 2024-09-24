@@ -25,14 +25,20 @@ fn u1_to_u8(x: u8) -> u8 {
 }
 
 fn define_benchmark(c: &mut Criterion, name: &str, u5_to_u8: impl Fn(u8) -> u8) {
-    let mut rng = rand::thread_rng();
+    define_benchmark_fn(c, name, |to_decode, output| {
+        decode(to_decode, output, &u5_to_u8)
+    });
+}
+fn define_benchmark_fn(c: &mut Criterion, name: &str, decode: impl Fn(&[u16], &mut [[u8; 4]])) {
+    // make sure that we always sample the same data
+    let mut rng = rand_chacha::ChaCha20Rng::seed_from_u64(12345678);
     const N: usize = 4096;
     let samples: Vec<u16> = black_box((0..N).map(|_| rng.gen()).collect());
     let mut output: [[u8; 4]; N] = [[0; 4]; N];
 
     c.bench_function(name, |b| {
         b.iter(|| {
-            decode(black_box(&samples), &mut output, &u5_to_u8);
+            decode(black_box(&samples), &mut output);
             black_box(output);
         })
     });
