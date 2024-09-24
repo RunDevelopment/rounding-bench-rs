@@ -7,7 +7,7 @@ This repo contains the benchmark for multiple implementations of unorm conversio
 Here's a simple table of the output of `cargo bench`:
 
 ```
-u5_to_u8_naive          time:   [102.22 µs 102.86 µs 103.63 µs]
+u5_to_u8_naive          time:   [196.99 µs 197.75 µs 198.71 µs]
 u5_to_u8_v2             time:   [17.730 µs 17.771 µs 17.817 µs]
 u5_to_u8_unsafe         time:   [7.2110 µs 7.2304 µs 7.2551 µs]
 u5_to_u8_safer          time:   [7.8876 µs 7.9219 µs 7.9606 µs]
@@ -39,12 +39,9 @@ test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; fini
 
      Running benches\bench.rs (target\release\deps\bench-ed5b5a701c237ad3.exe)
 Gnuplot not found, using plotters backend
-u5_to_u8_naive          time:   [102.22 µs 102.86 µs 103.63 µs]
-                        change: [-2.1300% -0.9825% +0.0839%] (p = 0.08 > 0.05)
-                        No change in performance detected.
-Found 16 outliers among 100 measurements (16.00%)
-  8 (8.00%) high mild
-  8 (8.00%) high severe
+u5_to_u8_naive          time:   [196.99 µs 197.75 µs 198.71 µs]
+                        change: [-5.0101% -3.7511% -2.5985%] (p = 0.00 < 0.05)
+                        Performance has improved.
 
 u5_to_u8_v2             time:   [17.730 µs 17.771 µs 17.817 µs]
                         change: [+0.5979% +1.2739% +1.9495%] (p = 0.00 < 0.05)
@@ -99,6 +96,10 @@ Found 14 outliers among 100 measurements (14.00%)
 ```
 
 </details>
+
+## Credit
+
+Thank you to @turalcar for [finding a bug in the benchmark](https://github.com/RunDevelopment/rounding-bench-rs/issues/1).
 
 ## License
 

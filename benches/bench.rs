@@ -27,7 +27,7 @@ fn u1_to_u8(x: u8) -> u8 {
 fn define_benchmark(c: &mut Criterion, name: &str, u5_to_u8: impl Fn(u8) -> u8) {
     let mut rng = rand::thread_rng();
     const N: usize = 4096;
-    let samples: Vec<u16> = black_box((0..N).map(|_| rng.gen_range(0..=31)).collect());
+    let samples: Vec<u16> = black_box((0..N).map(|_| rng.gen()).collect());
     let mut output: [[u8; 4]; N] = [[0; 4]; N];
 
     c.bench_function(name, |b| {
